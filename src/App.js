@@ -1,19 +1,11 @@
 import React from "react"
 import './App.css';
-import data from './Data'
-import { useId } from 'react'
 import he from 'he'
-/*
-import { calculateNewValue } from "@testing-library/user-event/dist/utils";
-import Title from './Title'
-*/
 import Question from "./Question";
 import Title from "./Title"
 import End from "./End"
 
 export default function App(){
-
-
 
 // State
   const [score, setScore] = React.useState(0)
@@ -21,11 +13,10 @@ export default function App(){
   const [gameStatus, setGameStatus] = React.useState(0)
   const [quiz, setQuiz] = React.useState([])
 
-  
-
 
   // useEffect
   React.useEffect(() => {
+    // Fetch data from Open Trivia DB
     const url = "https://opentdb.com/api.php?amount=5&type=multiple"
 
     const fetchData = async () => {
@@ -35,6 +26,7 @@ export default function App(){
         
         const newArray = []
         
+        // Set quiz state
         if(currentQuestion < 5){
           setQuiz((prevQuiz) => [
             {
@@ -55,32 +47,28 @@ export default function App(){
     fetchData()
   },[currentQuestion]) 
 
-
- 
-
-
   // Function to add correct answer and incorrect answer into options
   function insertOptions(wrong, correct){
     
+    // Grab random number and then use the to insert correct answer within the wrong answers array
     const correctIndex = Math.floor(Math.random() * 4)
     
     wrong.splice(correctIndex, 0, correct)
 
-    
-    
     return wrong 
   }
 
+
+  // Increase current question
   function handleIncorrect(){
-    console.log("wrong")
     setCurrentQuestion(prevQuestion => prevQuestion + 1)
     if(currentQuestion == 4){
       setGameStatus(3)
     }
   }
 
+  // Increase current question and also score
   function handleCorrect(){
-    console.log("correct")
     setScore(prevScore => prevScore + 1)
     setCurrentQuestion(prevQuestion => prevQuestion + 1)
     if(currentQuestion == 4){
@@ -89,10 +77,12 @@ export default function App(){
     
   }
 
+
   function startGame(){
     setGameStatus(1)
   }
 
+  // Go back to main menu and reset score, quiz, currentQuestion
   function startGameOver(){
     setGameStatus(0)
     setCurrentQuestion(0)
@@ -132,7 +122,6 @@ export default function App(){
           <End click={startGameOver} score={score}/> : ""
         }   
         
-
     </div>
   )
 }
