@@ -2,7 +2,7 @@
   "name": "quiz-mj",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://masej.github.io/QuizMaker-MJ/",
+  "homepage": "https://MaseJ.github.io/QuizMaker-MJ",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
