@@ -24,7 +24,6 @@ export default function App(){
         const response = await fetch(url)
         const json = await response.json()
         
-        const newArray = []
         
         // Set quiz state
         if(currentQuestion < 5){
@@ -62,7 +61,7 @@ export default function App(){
   // Increase current question
   function handleIncorrect(){
     setCurrentQuestion(prevQuestion => prevQuestion + 1)
-    if(currentQuestion == 4){
+    if(currentQuestion === 4){
       setGameStatus(3)
     }
   }
@@ -71,7 +70,7 @@ export default function App(){
   function handleCorrect(){
     setScore(prevScore => prevScore + 1)
     setCurrentQuestion(prevQuestion => prevQuestion + 1)
-    if(currentQuestion == 4){
+    if(currentQuestion === 4){
       setGameStatus(3)
     }
     
@@ -110,15 +109,15 @@ export default function App(){
   return(
     <div className="game--container">
         {
-          gameStatus == 0 && <Title click={startGame}/>
+          gameStatus === 0 && <Title click={startGame}/>
         }
 
         {
-          currentQuestion < 5  && gameStatus == 1 ?
+          currentQuestion < 5  && gameStatus === 1 ?
           <div className="question--container">
             {questions}
           </div> :
-          gameStatus == 3 ? 
+          gameStatus === 3 ? 
           <End click={startGameOver} score={score}/> : ""
         }   
         
