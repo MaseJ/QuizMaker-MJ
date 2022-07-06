@@ -5,8 +5,8 @@ body {
     height: 100%;
     background: rgb(198,30,223);
     background: linear-gradient(0deg, rgba(198,30,223,1) 0%, rgba(82,69,150,1) 50%, rgba(51,19,92,1) 100%);
-    animation: gradient 5s infinite alternate;
-    background-size: 200% 200%;
+    animation: gradient 3s infinite alternate;
+    background-size: 300% 300%;
 }
 
 html {
@@ -69,7 +69,7 @@ html {
     margin-right: auto;
     text-align: center;
     padding: 15px;
-    border: #DE38C8 solid;
+    border: white solid;
     border-width: 2px;
     font-size: 23px;
 }
@@ -87,7 +87,7 @@ html {
     border-radius: 10px;
     padding: 10px;
     font-size: 15px;
-    border: #DE38C8 solid;
+    border: white solid;
     border-width: 2px;
     font-family: 'Signika', sans-serif;
     font-size: 20px;
@@ -99,7 +99,7 @@ html {
 }
 
 .options--container {
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: 40% 40%;
     gap: 30px;
@@ -122,7 +122,7 @@ html {
     background-color: #652EC7;
     border: none;
     border-radius: 5px;
-    border: #DE38C8 solid;
+    border: white solid;
     border-width: 2px;
     width: 150px;
     background-color: #652EC7;
@@ -141,7 +141,7 @@ html {
 .description{
     font-size: 18px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .end--container {
@@ -153,11 +153,12 @@ html {
 .score{
     color: white;
     font-size: 45px;
-    margin: 150px;
+    margin-bottom:25px;
 }
 
 .neon--text {
     color: #fff;
+    margin: 0;
     text-shadow:
         0 0 10px #fff,
         0 0 21px #fff,
@@ -201,5 +202,76 @@ html {
 }
   
 
+@media (hover: hover){
+    .options--card:hover{
+        background-size: 100% 100%;
+        color: black;
+    }
+}
 
+@media only screen and (max-width: 900px){
+    .game--container{
+        width: 80%;
+        box-shadow:
+        0 0 60px 20px #fff,  
+        0 0 100px 40px #f0f, 
+        0 0 140px 50px #0ff;
+    }
+
+    .title--container {
+        margin-top: -40px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .question--card {
+        width: 90%;
+    }
+
+    
+}
+
+@media only screen and (max-width: 700px){
+
+    .options--container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 80%;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .game--container{
+        height: 700px;
+        border-radius: 50px;
+
+    }
+
+}
+
+@media only screen and (max-width: 550px){
+
+}
+
+@media only screen and (max-width: 500px){
+    .game--container{
+        height: 700px;
+        border-radius: 50px;
+
+    }
+
+    .description {
+        margin-bottom: 60px;
+    }
+
+}
+
+@media only screen and (max-width: 350px){
+    .game--container{
+        height: 800px;
+    }
+
+}
 
